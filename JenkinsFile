@@ -6,11 +6,26 @@ pipeline {
         }
     }
     stages {
+        stage('Test') {
+                    steps {
+                        sh 'mvn clean test'
+                    }
+                }
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
 
+
+    }
+}
+
+node {
+    stage('Test') {
+            echo 'Testing................'
+        }
+    stage('Build') {
+            echo 'Building................'
     }
 }
