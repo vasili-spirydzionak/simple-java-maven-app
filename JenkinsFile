@@ -21,7 +21,7 @@ pipeline {
     }
 }
 
-node {
+node('worker') {
     stage('Test') {
             echo 'Testing................'
         }
